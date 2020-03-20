@@ -1,1 +1,1 @@
-class class2
+class class2 section2
