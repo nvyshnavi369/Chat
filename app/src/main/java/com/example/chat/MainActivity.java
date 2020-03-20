@@ -115,16 +115,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
-
-    // testing new checkin
-
-    // temporary 2
-
-
-
-
-
 }
