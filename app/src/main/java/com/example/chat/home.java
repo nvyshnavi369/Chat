@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -61,18 +62,18 @@ public class home extends AppCompatActivity {
         });*/
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-        Menu menu=navigationView.getMenu();
-        final MenuItem address=menu.findItem(R.id.nav_address);
-        final MenuItem name=menu.findItem(R.id.nav_name);
-        final MenuItem dob=menu.findItem(R.id.nav_dob);
-        final MenuItem preferences=menu.findItem(R.id.nav_preferences);
-        final MenuItem aadhar=menu.findItem(R.id.nav_aadhar);
+        Menu menu = navigationView.getMenu();
+        final MenuItem address = menu.findItem(R.id.nav_address);
+        final MenuItem name = menu.findItem(R.id.nav_name);
+        final MenuItem dob = menu.findItem(R.id.nav_dob);
+        final MenuItem preferences = menu.findItem(R.id.nav_preferences);
+        final MenuItem aadhar = menu.findItem(R.id.nav_aadhar);
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                 R.id.nav_name, R.id.nav_address,R.id.nav_preferences,
-                R.id.nav_dob, R.id.nav_send,R.id.nav_home,R.id.nav_aadhar)
+                R.id.nav_name, R.id.nav_address, R.id.nav_preferences,
+                R.id.nav_dob, R.id.nav_send, R.id.nav_home, R.id.nav_aadhar)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -80,7 +81,7 @@ public class home extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        Toast.makeText(this, store.mobileno,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, store.mobileno, Toast.LENGTH_SHORT).show();
         DocumentReference docRef = db.collection("users").document(store.mobileno);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -91,11 +92,11 @@ public class home extends AppCompatActivity {
                         Log.d("TAG", "DocumentSnapshot data: " + document.getData());
                         Map<String, Object> user = document.getData();
                         //  Toast.makeText(home.this,user.get("password").toString().trim(),Toast.LENGTH_SHORT).show();
-                        name.setTitle("Name : "+user.get("name").toString().trim());
-                        address.setTitle("Address : "+ user.get("address").toString().trim());
-                        dob.setTitle("DOB : "+user.get("dob").toString().trim());
-                        preferences.setTitle("Preferences : "+user.get("preferences").toString().trim());
-                        aadhar.setTitle("Aadhar :"+user.get("aadhar").toString().trim());
+                        name.setTitle("Name : " + user.get("name").toString().trim());
+                        address.setTitle("Address : " + user.get("address").toString().trim());
+                        dob.setTitle("DOB : " + user.get("dob").toString().trim());
+                        preferences.setTitle("Preferences : " + user.get("preferences").toString().trim());
+                        aadhar.setTitle("Aadhar :" + user.get("aadhar").toString().trim());
 
 
                         //  Toast.makeText(home.this, string[0], Toast.LENGTH_SHORT).show();
@@ -115,9 +116,13 @@ public class home extends AppCompatActivity {
         emailTextView.setText(store.mobileno);
 
     }
+
     @Override
     public void onBackPressed() {
-
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
     }
 
     @Override
@@ -126,9 +131,10 @@ public class home extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.home, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        prf = getSharedPreferences("user_details",MODE_PRIVATE);
+        prf = getSharedPreferences("user_details", MODE_PRIVATE);
         // Handle item selection
         switch (item.getItemId()) {
 
@@ -136,13 +142,14 @@ public class home extends AppCompatActivity {
                 SharedPreferences.Editor editor = prf.edit();
                 editor.clear();
                 editor.commit();
-                Intent intent=new Intent(home.this,MainActivity.class);
+                Intent intent = new Intent(home.this, MainActivity.class);
                 startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
