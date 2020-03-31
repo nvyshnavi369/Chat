@@ -5,255 +5,115 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-     <TextView
-         android:id="@+id/textView_aadhar"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="Aadhar"
-         app:layout_constraintLeft_toLeftOf="parent"
-         app:layout_constraintRight_toRightOf="@id/textView_preferences"
-         app:layout_constraintTop_toTopOf="parent"
-         app:layout_constraintBottom_toBottomOf="@id/aadhar" />
+    <TextView
+        android:id="@+id/textView_aadhar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aadhar"
+        app:layout_constraintBottom_toBottomOf="@id/aadhar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/textView_preferences"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
+        android:id="@+id/aadhar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="enter aadhar"
-        android:id="@+id/aadhar"
+        app:layout_constraintBottom_toTopOf="@id/name"
         app:layout_constraintLeft_toRightOf="@id/textView_preferences"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/name"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/textView_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView_name"
         android:text="name"
+        app:layout_constraintBottom_toBottomOf="@id/name"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="@id/textView_preferences"
-        app:layout_constraintTop_toTopOf="@id/name"
-        app:layout_constraintBottom_toBottomOf="@id/name"/>
+        app:layout_constraintTop_toTopOf="@id/name" />
 
     <EditText
+        android:id="@+id/name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="enter your name"
-        android:id="@+id/name"
+        app:layout_constraintBottom_toTopOf="@id/calendarView"
         app:layout_constraintLeft_toRightOf="@id/textView_preferences"
-        app:layout_constraintTop_toBottomOf="@id/aadhar"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/calendarView"/>
+        app:layout_constraintTop_toBottomOf="@id/aadhar" />
+
     <TextView
+        android:id="@+id/textView_dob"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView_dob"
         android:text="DOB"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="@id/textView_preferences"
         app:layout_constraintTop_toTopOf="@id/calendarView" />
+
     <CalendarView
+        android:id="@+id/calendarView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:id="@+id/calendarView"
-        app:layout_constraintTop_toBottomOf="@id/name"
+        app:layout_constraintBottom_toTopOf="@id/address"
         app:layout_constraintLeft_toRightOf="@id/textView_preferences"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/address"/>
+        app:layout_constraintTop_toBottomOf="@id/name" />
 
     <EditText
+        android:id="@+id/dob"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/dob"
         app:layout_constraintLeft_toRightOf="@id/calendarView"
-        app:layout_constraintTop_toTopOf="@id/calendarView"/>
+        app:layout_constraintTop_toTopOf="@id/calendarView" />
 
     <TextView
+        android:id="@+id/textView_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView_address"
         android:text="address"
+        app:layout_constraintBottom_toBottomOf="@id/address"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="@id/textView_preferences"
-        app:layout_constraintTop_toTopOf="@id/address"
-        app:layout_constraintBottom_toBottomOf="@id/address"/>
+        app:layout_constraintTop_toTopOf="@id/address" />
+
     <EditText
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
         android:id="@+id/address"
-        android:hint="enter your address"
-        app:layout_constraintLeft_toRightOf="@id/textView_preferences"
-        app:layout_constraintTop_toBottomOf="@id/calendarView"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/preferences"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView_preferences"
-        android:text="preferences"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@id/preferences"
-        app:layout_constraintBottom_toBottomOf="@id/preferences"/>
-    <EditText
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:id="@+id/preferences"
-        android:hint="enter your preferences"
+        android:hint="enter your address"
+        app:layout_constraintBottom_toTopOf="@id/preferences"
         app:layout_constraintLeft_toRightOf="@id/textView_preferences"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/address"
-        app:layout_constraintBottom_toTopOf="@id/submit"/>
-    <Button
+        app:layout_constraintTop_toBottomOf="@id/calendarView" />
+
+    <TextView
+        android:id="@+id/textView_preferences"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="preferences"
+        app:layout_constraintBottom_toBottomOf="@id/preferences"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/preferences" />
+
+    <EditText
+        android:id="@+id/preferences"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="enter your preferences"
+        app:layout_constraintBottom_toTopOf="@id/submit"
+        app:layout_constraintLeft_toRightOf="@id/textView_preferences"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/address" />
+
+    <Button
         android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="submit"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/preferences"/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--    <TableLayout-->
-<!--        android:id="@+id/tableLayout"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="0dp"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/submit"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.5"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
-
-<!--        <TableRow-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent">-->
-
-<!--            <TextView-->
-
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:paddingLeft="110px"-->
-<!--                android:text="Aadhar" />-->
-
-<!--            <EditText-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:textSize="18sp"-->
-<!--                android:hint="enter aadhar"-->
-<!--                android:inputType="text" />-->
-<!--        </TableRow>-->
-
-<!--        <TableRow-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent">-->
-
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:paddingLeft="120px"-->
-<!--                android:text="Name"-->
-<!--                android:textSize="14sp"-->
-<!--                app:autoSizeTextType="uniform" />-->
-
-<!--            <EditText-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:ems="10"-->
-<!--                android:hint="enter name"-->
-<!--                android:inputType="textPersonName" />-->
-<!--        </TableRow>-->
-
-<!--        <TableRow-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent">-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/textView10"-->
-<!--                android:layout_width="67dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:paddingLeft="130px"-->
-<!--                android:text="DoB" />-->
-
-<!--            <CalendarView-->
-<!--                -->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content" />-->
-
-<!--            <EditText-->
-<!--                android:id="@+id/dob"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:ems="10"-->
-<!--                android:hint="enter dob"-->
-<!--                android:inputType="phone" />-->
-
-<!--        </TableRow>-->
-
-<!--        <TableRow-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent">-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/textView11"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:paddingLeft="100px"-->
-<!--                android:text="Address" />-->
-
-<!--            <EditText-->
-<!--                -->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:ems="10"-->
-<!--                android:hint="address"-->
-<!--                android:inputType="textPersonName"-->
-<!--                android:maxLines="4" />-->
-<!--        </TableRow>-->
-
-<!--        <TableRow-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent">-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/textView12"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:paddingLeft="50px"-->
-<!--                android:text="Preferences" />-->
-
-<!--            <EditText-->
-<!--                -->
-<!--                android:layout_width="271dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:ems="10"-->
-<!--                android:hint="preferences"-->
-<!--                android:inputType="textPersonName"-->
-
-<!--                android:maxLines="4" />-->
-
-<!--        </TableRow>-->
-
-<!--    </TableLayout>-->
-
-<!--    <Button-->
-<!--       -->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="240dp"-->
-<!--        android:layout_marginBottom="28dp"-->
-<!--        android:text="Submit"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent" />-->
+        app:layout_constraintTop_toBottomOf="@id/preferences" />
 </androidx.constraintlayout.widget.ConstraintLayout>
